@@ -1,0 +1,3 @@
+[submodule "external/Hina"]
+	path = external/Hina
+	url = https://github.com/Arutosio/Hina.git

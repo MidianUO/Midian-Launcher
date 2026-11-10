@@ -1,0 +1,6 @@
+bin/
+obj/
+*.user
+.vs/
+# Le gump di Ultima Online (arte di EA): si generano dai file del gioco, non si pubblicano.
+grafica.bin

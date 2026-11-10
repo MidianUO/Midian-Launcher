@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Launcher di Midian ("Avvia Midian.exe"): aggiorna il client con Hina (external/Hina) e avvia ClassicUO.
+       Finestra Win32 disegnata a mano con la grafica di Ultima Online (grafica.bin, presa da Gumpart.mul).
+       Compilato NativeAOT: un solo .exe (piu' libsodium.dll per le firme), senza .NET installato.
+       Pubblicazione: dotnet publish -c Release -o "C:\Midian All\hina-strumenti\launcher" -->
+  <PropertyGroup>
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+    <DefaultItemExcludes>$(DefaultItemExcludes);external/**</DefaultItemExcludes>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>Avvia Midian</AssemblyName>
+    <RootNamespace>MidianLauncher</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <UseSystemResourceKeys>true</UseSystemResourceKeys>
+    <ApplicationIcon>cuoicon.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>1.0.0</Version>
+    <Product>Midian</Product>
+    <Description>Launcher di Midian</Description>
+    <!-- Hina usa la gestione centralizzata dei pacchetti: qui le versioni sono esplicite. -->
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="grafica.bin" LogicalName="grafica.bin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="external\Hina\Hina.Core\Hina.Core.csproj" />
+  </ItemGroup>
+
+</Project>
