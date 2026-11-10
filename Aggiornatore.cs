@@ -136,10 +136,7 @@ namespace MidianLauncher
                 File.Copy(exe, nuovo, true);
             }
 
-            foreach (string dll in Directory.GetFiles(Path.GetDirectoryName(exe)!, "*.dll"))
-            {
-                File.Copy(dll, Path.Combine(dest, Path.GetFileName(dll)), true);
-            }
+            Libsodium.Metti(dest);
 
             Collegamento(nuovo);
             Process.Start(new ProcessStartInfo(nuovo) { WorkingDirectory = dest, UseShellExecute = false, ArgumentList = { "--qui" } });
@@ -245,6 +242,7 @@ namespace MidianLauncher
             };
 
             _f.Imposta("Controllo degli aggiornamenti...", "", -1);
+            Libsodium.Metti(AppContext.BaseDirectory);
             Manifest elenco;
             using (HttpClient http = new HttpClient { Timeout = TimeSpan.FromSeconds(30) })
             {

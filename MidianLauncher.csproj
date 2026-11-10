@@ -29,6 +29,8 @@
 
   <ItemGroup>
     <EmbeddedResource Include="grafica.bin" LogicalName="grafica.bin" />
+    <!-- libsodium.dll (firme di Hina/NSec) dentro l'exe: dal sito si scarica un solo file; Libsodium.cs la estrae. -->
+    <EmbeddedResource Include="$(NuGetPackageRoot)libsodium\1.0.19\runtimes\win-x64\native\libsodium.dll" LogicalName="libsodium.dll" />
   </ItemGroup>
 
   <ItemGroup>
